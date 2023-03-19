@@ -161,7 +161,10 @@ src/model/**/submit.csv
 src/model/**/*.pth
 src/predict.csv
 src/submit.csv
-src/*pth
+src/ckpt*.*
+src/*.pth
+src/*.model
+src/*final.ipynb
 
 # Data
 data/testing/**/*.jpg
