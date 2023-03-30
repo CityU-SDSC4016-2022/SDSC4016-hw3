@@ -154,6 +154,7 @@ cython_debug/
 # VScode
 .vscode/
 test*.ipynb
+*.py.bak
 
 # Model and prediction
 src/model/**/predict.csv
