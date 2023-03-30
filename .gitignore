@@ -157,15 +157,11 @@ test*.ipynb
 *.py.bak
 
 # Model and prediction
-src/model/**/predict.csv
-src/model/**/submit.csv
-src/model/**/*.pth
 src/predict.csv
 src/submit.csv
-src/ckpt*.*
-src/*.pth
 src/*.model
-src/*final.ipynb
+predict_*.csv
+
 
 # Data
 data/testing/**/*.jpg
