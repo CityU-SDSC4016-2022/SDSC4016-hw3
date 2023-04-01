@@ -23,7 +23,7 @@ def main():
 
     # Model configuration
     sen_len = 32
-    split_size = 0.2 # split size of the Twitter testing dataset
+    split_size = 0.2 # size of the Twitter testing data
     batch_size = 256 # training batch size
     vec_size = 256 # dimension of the word vectors
     w2v_win = 8 # window size: Maximum distance between the current and predicted word within a sentence
@@ -46,10 +46,10 @@ def main():
     train_y = preprocess.labels_to_tensor(train_y)
 
     # Twitter dataset
-    x_train, x_val, y_train, y_val = train_test_split(train_x, train_y, test_size=split_size)
+    x_train, x_val, y_train, y_val = train_test_split(train_x, train_y, test_size=split_size) # split to training test and test set
     train_dataset = TwitterDataset(x_train, y_train)
     val_dataset = TwitterDataset(x_val, y_val)
-    train_loader = data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
+    train_loader = data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=0) 
     val_loader = data.DataLoader(dataset=val_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
 
     # LSTM model
