@@ -41,23 +41,34 @@ mamba install -c conda-forge Jupyter ipykernel
 mamba install -c conda-forge pandas numpy matplotlib scikit-learn gensim
 ```
 
-<!-- ### Code
+### Code
 
-[Weak Baseline](src/Baseline.ipynb)
+#### [Weak Baseline](https://github.com/CityU-SDSC4016-2022/SDSC4016-hw3/blob/notebook/src/HW3_Baseline.ipynb)
 
-[Strong Baseline](src/Modified.Private.ipynb) -->
+#### Strong Baseline
 
-<!-- ### Dataset
+1. You can run it by ```script.sh```
 
-[Training set](data/training/)
+2. Or you can run it by the following command:
 
-[Testing set](data/testing/) -->
+    ```bash
+    source ~/miniconda3/etc/profile.d/conda.sh
+    source ~/miniconda3/etc/profile.d/mamba.sh
+    mamba activate 4016hw3
+    python src/script.py
+    ```
+
+### Dataset
+
+[Training set](data/Train_label.txt)
+
+[Testing set](data/Test.txt)
 
 <!-- ### Tested Result on Kaggle
 
 [Results on Kaggle](md/kaggle.md) -->
 
-<!-- ### Final Score (Strong Baseline)
+### Final Score (Strong Baseline)
 
-- Public: 0.85156
-- Private: 0.89874 -->
+- Public: 0.87228
+<!-- - Private: 0.89874 -->
