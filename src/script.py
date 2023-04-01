@@ -23,7 +23,7 @@ def main():
 
     # Model configuration
     sen_len = 32
-    split_size = 0.2 # split size of the testing set
+    split_size = 0.2 # split size of the Twitter testing dataset
     batch_size = 256 # training batch size
     vec_size = 256 # dimension of the word vectors
     w2v_win = 8 # window size: Maximum distance between the current and predicted word within a sentence
@@ -50,6 +50,7 @@ def main():
     train_loader = data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
     val_loader = data.DataLoader(dataset=val_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
 
+    #LSTM model
     lstm_model = LSTMNet(embedding, w2v_model.vector_size, lstm_hidden_dim, lstm_num_layers, lstm_dropout, fix_embedding)
     lstm_model = lstm_model.to(device)
 
