@@ -36,6 +36,7 @@ def main():
     lstm_dropout = 0.5 # Add dropout to the LSTM model
     fix_embedding = True # fix embedding during training
 
+    # Word2Vec model
     w2v_model = word2vec.Word2Vec(train_x + test_x, vector_size=vec_size, window=w2v_win, min_count=w2v_mc, workers=16, epochs=w2v_epoch)
 
     # Preprocessing
@@ -44,13 +45,14 @@ def main():
     train_x = preprocess.sentence_word2idx()
     train_y = preprocess.labels_to_tensor(train_y)
 
+    # Twitter dataset
     x_train, x_val, y_train, y_val = train_test_split(train_x, train_y, test_size=split_size)
     train_dataset = TwitterDataset(x_train, y_train)
     val_dataset = TwitterDataset(x_val, y_val)
     train_loader = data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
     val_loader = data.DataLoader(dataset=val_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
 
-    #LSTM model
+    # LSTM model
     lstm_model = LSTMNet(embedding, w2v_model.vector_size, lstm_hidden_dim, lstm_num_layers, lstm_dropout, fix_embedding)
     lstm_model = lstm_model.to(device)
 
