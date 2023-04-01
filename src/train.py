@@ -16,7 +16,7 @@ def training(batch_size: int, n_epoch: int, lr: float, train: DataLoader, valid:
     criterion = nn.BCELoss()  # Define loss function
     t_batch = len(train)
     v_batch = len(valid)
-    optimizer = optim.AdamW(model.parameters(), lr=lr)  # set optimizer as SGD (you can change it)
+    optimizer = optim.AdamW(model.parameters(), lr=lr)  # set optimizer as AdamW
     total_loss, total_acc, best_acc = 0, 0, 0
     best_model = None
 
