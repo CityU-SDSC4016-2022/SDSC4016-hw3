@@ -23,18 +23,18 @@ def main():
 
     # Model configuration
     sen_len = 32
-    split_size = 0.2 # size of the Twitter testing data
-    batch_size = 256 # training batch size
-    vec_size = 256 # dimension of the word vectors
-    w2v_win = 8 # window size: Maximum distance between the current and predicted word within a sentence
-    w2v_mc = 8 # Min count: Ignores all words with total frequency lower than this
-    w2v_epoch = 20 # Number of epochs for the word2vec model
-    train_epoch = 8 # Number of epochs for the LSTM model
-    train_lr = 1e-3 # learning rate for the LSTM model
-    lstm_hidden_dim = 256 # hidden dimentions of the LSTM model
-    lstm_num_layers = 3 # number of layers of the LSTM model
-    lstm_dropout = 0.5 # Add dropout to the LSTM model
-    fix_embedding = True # fix embedding during training
+    split_size = 0.2            # Size of the Twitter validating dataset out of the training dataset
+    batch_size = 256            # Training batch size
+    vec_size = 256              # Dimension of the word vectors
+    w2v_win = 8                 # Maximum distance between the current and predicted word within a sentence
+    w2v_mc = 8                  # Ignores all words with total frequency lower than this
+    w2v_epoch = 20              # Number of epochs for the word2vec model
+    train_epoch = 8             # Number of epochs for the LSTM model
+    train_lr = 1e-3             # Learning rate for the LSTM model
+    lstm_hidden_dim = 256       # Hidden dimensions of the LSTM model
+    lstm_num_layers = 3         # Number of layers of the LSTM model
+    lstm_dropout = 0.5          # Dropout rate of the LSTM model
+    fix_embedding = True        # Fix embedding during training
 
     # Word2Vec model
     w2v_model = word2vec.Word2Vec(train_x + test_x, vector_size=vec_size, window=w2v_win, min_count=w2v_mc, workers=16, epochs=w2v_epoch)
@@ -46,10 +46,10 @@ def main():
     train_y = preprocess.labels_to_tensor(train_y)
 
     # Twitter dataset
-    x_train, x_val, y_train, y_val = train_test_split(train_x, train_y, test_size=split_size) # split to training test and test set
+    x_train, x_val, y_train, y_val = train_test_split(train_x, train_y, test_size=split_size)  # Split to training test and validating set
     train_dataset = TwitterDataset(x_train, y_train)
     val_dataset = TwitterDataset(x_val, y_val)
-    train_loader = data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=0) 
+    train_loader = data.DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
     val_loader = data.DataLoader(dataset=val_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
 
     # LSTM model
