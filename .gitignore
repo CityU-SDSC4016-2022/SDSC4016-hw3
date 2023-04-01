@@ -162,5 +162,5 @@ src/submit.csv
 src/*.model
 predict_*.csv
 
-# # Data
-# data/
+# Data
+data/
