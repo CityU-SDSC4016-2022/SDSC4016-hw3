@@ -16,6 +16,7 @@ Solve a sentiment classification problem (Twitter Review) with LSTM.
   - Python 3.10+
   - Jupyter
   - pytorch
+  - gensim
 
 ### Install mini-conda and mamba
 
@@ -38,12 +39,14 @@ mamba activate 4016hw3
 # conda or mamba
 mamba install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
 mamba install -c conda-forge Jupyter ipykernel
-mamba install -c conda-forge pandas numpy matplotlib scikit-learn gensim
+mamba install -c conda-forge pandas numpy scikit-learn gensim
 ```
 
 ### Code
 
-#### [Weak Baseline](https://github.com/CityU-SDSC4016-2022/SDSC4016-hw3/blob/notebook/src/HW3_Baseline.ipynb)
+#### Weak Baseline
+
+- [Jupyter Notebook](https://github.com/CityU-SDSC4016-2022/SDSC4016-hw3/blob/notebook/src/HW3_Baseline.ipynb)
 
 #### Strong Baseline
 
@@ -71,4 +74,4 @@ mamba install -c conda-forge pandas numpy matplotlib scikit-learn gensim
 ### Final Score (Strong Baseline)
 
 - Public: 0.87228
-<!-- - Private: 0.89874 -->
+- Private: 0.87208
